@@ -1,23 +1,22 @@
 ﻿using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class MovePlayer : MonoBehaviour {
 
-	[SerializeField] protected float speed = 5.0f;
+	[SerializeField] protected float speed = 50.0f;
 	[SerializeField] protected float SpeedJump = 5.0f;
-	[SerializeField] protected bool IsGround = false;
-	RectTransform js;
+	[SerializeField] [HideInInspector] protected bool IsGround = false;
+	[SerializeField] protected Transform cam;
+	[SerializeField] protected  SimpleTouchController leftController;
 	Rigidbody rb;
 	// Use this for initialization
 	protected void Start () {
 		rb = GetComponent<Rigidbody>();
-		js = GameObject.Find("MobileJoystick").GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
 	protected void FixedUpdate () {
-		var h = Mathf.Round(js.position.x) - 145;
-		var v = Mathf.Round(js.position.y) - 123;
-
+		var h = leftController.GetTouchPosition.x;
+		var v = leftController.GetTouchPosition.y;
 		rb.AddTorque(new Vector3(v * Time.deltaTime * speed , 0 , -h * Time.deltaTime * speed));
 	}
 	public void JumpToPlayer() {
@@ -34,5 +33,8 @@ public class MovePlayer : MonoBehaviour {
 		if(other.collider.CompareTag("IsGround")) {
 			IsGround = false;
 		}
+	}
+	public void LeftPovorot() {
+		cam.eulerAngles += new Vector3(0f , 5f ,0f);
 	}
 }
