@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 public class MovePlayer : MonoBehaviour {
 
 	[SerializeField] protected float speed = 50.0f;
@@ -7,6 +6,7 @@ public class MovePlayer : MonoBehaviour {
 	[SerializeField] [HideInInspector] protected bool IsGround = false;
 	[SerializeField] protected  SimpleTouchController leftController;
 	[SerializeField] protected Transform cam;
+
 	Rigidbody rb;
 	// Use this for initialization
 	protected void Start () {
@@ -33,8 +33,5 @@ public class MovePlayer : MonoBehaviour {
 		if(other.collider.CompareTag("IsGround")) {
 			IsGround = false;
 		}
-	}
-	public void LeftPovorot() {
-		cam.eulerAngles += new Vector3(0f , 5f ,0f);
 	}
 }
