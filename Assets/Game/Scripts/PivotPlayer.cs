@@ -2,10 +2,9 @@
 
 public class PivotPlayer : MonoBehaviour {
 	[SerializeField] [HideInInspector] protected float X , Y , Z;
-	Transform player;
+	[SerializeField] protected Transform player;
 	// Use this for initialization
 	protected void Start () {
-		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 		X = transform.localPosition.x;
 		Y = transform.localPosition.y;
 		Z = transform.localPosition.z;

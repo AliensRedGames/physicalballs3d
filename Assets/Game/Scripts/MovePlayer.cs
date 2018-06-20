@@ -5,8 +5,8 @@ public class MovePlayer : MonoBehaviour {
 	[SerializeField] protected float speed = 50.0f;
 	[SerializeField] protected float SpeedJump = 5.0f;
 	[SerializeField] [HideInInspector] protected bool IsGround = false;
-	[SerializeField] protected Transform cam;
 	[SerializeField] protected  SimpleTouchController leftController;
+	[SerializeField] protected Transform cam;
 	Rigidbody rb;
 	// Use this for initialization
 	protected void Start () {
