@@ -17,7 +17,7 @@ public class MovePlayer : MonoBehaviour {
 	protected void FixedUpdate () {
 		var h = leftController.GetTouchPosition.x;
 		var v = leftController.GetTouchPosition.y;
-		rb.AddTorque(new Vector3(v * Time.deltaTime * speed , 0 , -h * Time.deltaTime * speed));
+		rb.AddTorque(cam.transform.forward * -h * Time.deltaTime * speed + cam.transform.right * v * Time.deltaTime * speed);
 	}
 	public void JumpToPlayer() {
 		if (IsGround) {
