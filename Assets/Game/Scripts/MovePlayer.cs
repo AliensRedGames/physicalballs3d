@@ -6,13 +6,13 @@ public class MovePlayer : MonoBehaviour {
 	RectTransform js;
 	Rigidbody rb;
 	// Use this for initialization
-	void Start () {
+	protected void Start () {
 		rb = GetComponent<Rigidbody>();
 		js = GameObject.Find("MobileJoystick").GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	protected void FixedUpdate () {
 		var h = Mathf.Round(js.position.x) - 145;
 		var v = Mathf.Round(js.position.y) - 123;
 
