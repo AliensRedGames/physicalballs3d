@@ -175,6 +175,19 @@ Prefab:
       value: 
       objectReference: {fileID: 13400000, guid: e89b8e2fb7cf4e549a35c8778bbedde1,
         type: 2}
+    - target: {fileID: 4847890948502060, guid: 7d90c8c5edad1244bbfcf1439fa43c9d, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109076125442326, guid: 7d90c8c5edad1244bbfcf1439fa43c9d, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114507444083172550, guid: 7d90c8c5edad1244bbfcf1439fa43c9d,
+        type: 2}
+      propertyPath: IsGroundSound
+      value: 
+      objectReference: {fileID: 482176011}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d90c8c5edad1244bbfcf1439fa43c9d, type: 2}
   m_IsPrefabParent: 0
@@ -294,6 +307,115 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104555398}
+--- !u!1 &482176009
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 482176010}
+  - component: {fileID: 482176011}
+  m_Layer: 0
+  m_Name: isground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482176010
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482176009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1664386267}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &482176011
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482176009}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd206bd35dbb27744b96308134273e4b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &676367587
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +781,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4976873705914758, guid: 82aeaa42d76d2f84790148ddf576848f,
     type: 2}
   m_PrefabInternal: {fileID: 1523147329}
+--- !u!4 &1664386267 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4894981339015674, guid: 7d90c8c5edad1244bbfcf1439fa43c9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 99170724}
 --- !u!1001 &1721479882
 Prefab:
   m_ObjectHideFlags: 0
@@ -1034,6 +1161,11 @@ Prefab:
     - target: {fileID: 1981143865316220, guid: 89cceb0ece6375c468a2b5bfa617376b, type: 2}
       propertyPath: m_Name
       value: WaterBouncy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114735713006712670, guid: 89cceb0ece6375c468a2b5bfa617376b,
+        type: 2}
+      propertyPath: disablePixelLights
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 89cceb0ece6375c468a2b5bfa617376b, type: 2}

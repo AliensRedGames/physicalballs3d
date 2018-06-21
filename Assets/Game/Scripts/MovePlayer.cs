@@ -5,6 +5,7 @@ public class MovePlayer : MonoBehaviour {
 	[SerializeField] protected float SpeedJump = 5.0f;
 	[SerializeField] [HideInInspector] protected bool IsGround = false;
 	[SerializeField] protected  SimpleTouchController leftController;
+	[SerializeField] protected AudioSource IsGroundSound = null;
 	[SerializeField] protected Transform cam;
 
 	Rigidbody rb;
@@ -27,6 +28,7 @@ public class MovePlayer : MonoBehaviour {
 	protected void OnCollisionEnter (Collision other) {
 		if(other.collider.CompareTag("IsGround")) {
 			IsGround = true;
+			IsGroundSound.Play();
 		}
 	}
 	protected void OnCollisionExit (Collision other) {
