@@ -7,18 +7,28 @@ public class MovePlayer : MonoBehaviour {
 	[SerializeField] protected  SimpleTouchController leftController;
 	[SerializeField] protected AudioSource IsGroundSound = null;
 	[SerializeField] protected Transform cam;
+	[SerializeField] protected bool isMobile = false;
 
 	Rigidbody rb;
 	// Use this for initialization
 	protected void Start () {
 		this.rb = GetComponent<Rigidbody>();
 	}
-	
+
 	// Update is called once per frame
 	protected void FixedUpdate () {
-		var h = leftController.GetTouchPosition.x;
-		var v = leftController.GetTouchPosition.y;
-		this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
+		if (this.isMobile) {
+			var h = this.leftController.GetTouchPosition.x;
+			var v = this.leftController.GetTouchPosition.y;
+			this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
+		} else {
+			var h = Input.GetAxis("Horizontal");
+			var v = Input.GetAxis("Vertical");
+			this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
+			if (Input.GetButton("Jump")) {
+				JumpToPlayer();
+			}
+		}
 	}
 	public void JumpToPlayer() {
 		if (this.IsGround) {
@@ -29,6 +39,21 @@ public class MovePlayer : MonoBehaviour {
 		if(other.collider.CompareTag("IsGround")) {
 			this.IsGround = true;
 			this.IsGroundSound.Play();
+		}
+	}
+	protected void OnTriggerStay (Collider other) {
+		if (this.isMobile) {
+			if (other.CompareTag("Water Volume")) {
+				var h = this.leftController.GetTouchPosition.x;
+				var v = this.leftController.GetTouchPosition.y;
+				this.rb.AddForce(this.cam.transform.forward * v * Time.deltaTime * this.speed + this.cam.transform.right * h * Time.deltaTime * this.speed);
+				this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
+			}
+		} else {
+			var h = Input.GetAxis("Horizontal");
+			var v = Input.GetAxis("Vertical");
+			this.rb.AddForce(this.cam.transform.forward * v * Time.deltaTime * this.speed + this.cam.transform.right * h * Time.deltaTime * this.speed);
+			this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
 		}
 	}
 	protected void OnCollisionExit (Collision other) {
