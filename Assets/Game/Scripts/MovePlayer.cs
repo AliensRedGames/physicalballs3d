@@ -11,29 +11,29 @@ public class MovePlayer : MonoBehaviour {
 	Rigidbody rb;
 	// Use this for initialization
 	protected void Start () {
-		rb = GetComponent<Rigidbody>();
+		this.rb = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame
 	protected void FixedUpdate () {
 		var h = leftController.GetTouchPosition.x;
 		var v = leftController.GetTouchPosition.y;
-		rb.AddTorque(cam.transform.forward * -h * Time.deltaTime * speed + cam.transform.right * v * Time.deltaTime * speed);
+		this.rb.AddTorque(this.cam.transform.forward * -h * Time.deltaTime * this.speed + this.cam.transform.right * v * Time.deltaTime * this.speed);
 	}
 	public void JumpToPlayer() {
-		if (IsGround) {
-			rb.velocity += Vector3.up * SpeedJump;
+		if (this.IsGround) {
+			this.rb.velocity += Vector3.up * this.SpeedJump;
 		}
 	}
 	protected void OnCollisionEnter (Collision other) {
 		if(other.collider.CompareTag("IsGround")) {
-			IsGround = true;
-			IsGroundSound.Play();
+			this.IsGround = true;
+			this.IsGroundSound.Play();
 		}
 	}
 	protected void OnCollisionExit (Collision other) {
 		if(other.collider.CompareTag("IsGround")) {
-			IsGround = false;
+			this.IsGround = false;
 		}
 	}
 }

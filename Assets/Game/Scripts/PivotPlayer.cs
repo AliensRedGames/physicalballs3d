@@ -5,13 +5,13 @@ public class PivotPlayer : MonoBehaviour {
 	[SerializeField] protected Transform player;
 	// Use this for initialization
 	protected void Start () {
-		X = transform.localPosition.x;
-		Y = transform.localPosition.y;
-		Z = transform.localPosition.z;
+		this.X = this.transform.localPosition.x;
+		this.Y = this.transform.localPosition.y;
+		this.Z = this.transform.localPosition.z;
 	}
 	
 	// Update is called once per frame
 	protected void Update () {
-		transform.localPosition = new Vector3(player.transform.localPosition.x + X , player.transform.localPosition.y + Y, player.transform.localPosition.z + Z);
+		this.transform.localPosition = new Vector3(this.player.transform.localPosition.x + this.X , this.player.transform.localPosition.y + this.Y, this.player.transform.localPosition.z + this.Z);
 	}
 }
