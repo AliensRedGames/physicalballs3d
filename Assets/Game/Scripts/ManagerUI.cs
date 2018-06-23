@@ -60,4 +60,8 @@ public class ManagerUI : MonoBehaviour {
 		PlayerPrefs.Save();
 		Debug.Log("Графика:сохранение успешно");
 	}
+	
+	public void hideMainMenu () {
+		this.MainMenu.SetBool("open" , false);
+	}
 }
