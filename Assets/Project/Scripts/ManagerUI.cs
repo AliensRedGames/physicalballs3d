@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ManagerUI : MonoBehaviour {
-	[SerializeField] protected Animator Settings = null , MainMenu = null , SettingsSound = null , SettingsVideo;
+	[SerializeField] protected Animator Settings = null , MainMenu = null , SettingsSound = null , SettingsVideo = null , Task = null;
 	[SerializeField] protected Dropdown Graphic = null;
 	// Use this for initialization
 	void Start () {
@@ -67,5 +67,12 @@ public class ManagerUI : MonoBehaviour {
 
 	public void showMainMenu () {
 		this.MainMenu.SetBool("open" , true);
+	}
+	
+	public void showTask () {
+		this.Task.SetBool("open" , true);
+	}
+	public void hideTask () {
+		this.Task.SetBool("open" , false);
 	}
 }
